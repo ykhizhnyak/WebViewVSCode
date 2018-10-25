@@ -77,8 +77,6 @@ class CatCodingPanel {
         const panel = vscode.window.createWebviewPanel(CatCodingPanel.viewType, "Cat Coding", column || vscode.ViewColumn.One, {
             enableScripts: true
         });
-        const onDiskPath = vscode.Uri.file(path.join(__dirname, 'media', 'Codebird.js'));
-        const webSrc = onDiskPath.with({ scheme: 'vscode-resource' });
         CatCodingPanel.currentPanel = new CatCodingPanel(panel, extensionPath);
     }
     static revive(panel, extensionPath) {
@@ -90,7 +88,6 @@ class CatCodingPanel {
     }
     dispose() {
         CatCodingPanel.currentPanel = undefined;
-        // Clean up our resources
         this._panel.dispose();
         while (this._disposables.length) {
             const x = this._disposables.pop();
