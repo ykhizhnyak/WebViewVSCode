@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as vscode from 'vscode'; 
-
+//var Codebird = require("codebird");
 
 const cats = {
     'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
@@ -76,7 +76,7 @@ class CatCodingPanel {
                 case 'twit':
                     vscode.window.showInformationMessage(message.text);
 
-                    //var cb = new Codebird; 
+                    // var cb = new Codebird; 
                     // cb.setConsumerKey('IkGv5KFw7cpnNP96840j3jt0H', 'rdGAXK7eWQfU3mUTlZNLBEhLRGynY1N19bNglPH6ZFHLewgZMp');
                     // cb.setToken('491981647-OaQ2FoxqGSDlaMyEI6MUpq2Gg9mOpZ4nTKg2G973', 'EuvhRxKtubT7N1JJCjE1xAipFjR1C02MH7rq4bHFpCCrX');
 
@@ -84,10 +84,7 @@ class CatCodingPanel {
                     //     status: document.getElementById('twitText').value
                     // };
                     // cb.__call("statuses_update", params, function(reply, rate, err) {
-                    //     vscode.postMessage({
-                    //         command: 'alert',
-                    //         text: err
-                    //     });
+                    //     vscode.showErrorMessage(err);
                     // });
 
                     return;
@@ -136,13 +133,12 @@ class CatCodingPanel {
             <head>
                 <meta charset="UTF-8">
                 <title>Cat Twitting</title>
+                <script src="Codebird.js"></script>
             </head>
             <body>
                 <center><img src="${catGif}" width="300" /></center>
                 <center><input type="text" id="twitText" style="width:500px; height:34px; border:1px solid red; font-size:16px;" /></center><br/>
-                <center><div id="twitButton" style="width:500px; height:40px; border:1px solid red; font-size:22px; cursor:pointer">Twit from back end</div></center><br/>
-                <center><div id="twitButtonFront" style="width:500px; height:40px; border:1px solid red; font-size:22px; cursor:pointer">Twit from front end</div></center>
-
+                <center><div id="twitButton" style="width:500px; height:40px; border:1px solid red; font-size:22px; cursor:pointer">Twit from back end</div></center>
                 <script nonce="${nonce}" src="${scriptUri}"></script>
             </body>
             </html>`;
