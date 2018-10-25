@@ -51,19 +51,19 @@ class CatCodingPanel {
         this._panel.webview.onDidReceiveMessage(message => {
             switch (message.command) {
                 case 'twit':
-                    vscode.window.showInformationMessage(message.text);
+                    vscode.window.showInformationMessage('Twitting : ' + message.text);
                     var cb = new Codebird;
                     cb.setConsumerKey('IkGv5KFw7cpnNP96840j3jt0H', 'rdGAXK7eWQfU3mUTlZNLBEhLRGynY1N19bNglPH6ZFHLewgZMp');
                     cb.setToken('491981647-OaQ2FoxqGSDlaMyEI6MUpq2Gg9mOpZ4nTKg2G973', 'EuvhRxKtubT7N1JJCjE1xAipFjR1C02MH7rq4bHFpCCrX');
                     var params = {
-                        status: 'Twit from extension' //document.getElementById('twitText').value
+                        status: message.text
                     };
-                    cb.__call("statuses_update", params, function (reply, rate, err) {
-                        vscode.showErrorMessage(err);
+                    cb.__call("statuses_update", params, function (reply) {
+                        vscode.window.showInformationMessage(reply);
                     });
                     return;
                 case 'alert':
-                    vscode.window.showErrorMessage(message.text);
+                    vscode.window.showInformationMessage(message.text);
                     return;
             }
         }, null, this._disposables);
@@ -121,7 +121,7 @@ class CatCodingPanel {
             <body>
                 <center><img src="${catGif}" width="300" /></center>
                 <center><input type="text" id="twitText" style="width:500px; height:34px; border:1px solid red; font-size:16px;" /></center><br/>
-                <center><div id="twitButton" style="width:500px; height:40px; border:1px solid red; font-size:22px; cursor:pointer">Twit from back end</div></center>
+                <center><div id="twitButton" style="width:500px; height:40px; border:1px solid red; font-size:22px; cursor:pointer">Twit</div></center>
                 <script nonce="${nonce}" src="${scriptUri}"></script>
             </body>
             </html>`;

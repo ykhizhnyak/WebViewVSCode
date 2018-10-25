@@ -10,16 +10,17 @@
                     command: 'twit',
                     text: document.getElementById('twitText').value
                 });
+                document.getElementById('twitText').value = "";
                 break;
         }
     });
 
     document.getElementById('twitButton').addEventListener('click', event=>{
-        const message = event.data;
         vscode.postMessage({
             command: 'twit',
             text: document.getElementById('twitText').value
         });
+        document.getElementById('twitText').value = "";
      });
 
 }());
