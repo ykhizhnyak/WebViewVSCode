@@ -44,6 +44,7 @@
     "vscode": "^1.1.21"
   },
   "dependencies": {
-    "codebird": "^2.6.0"
+    "codebird": "^2.6.0",
+    "xmlhttprequest": "^1.8.0"
   }
 }
