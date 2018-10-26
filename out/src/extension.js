@@ -12,7 +12,7 @@ const path = require("path");
 const vscode = require("vscode");
 var Codebird = require("codebird");
 const cats = {
-    'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
+    'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif'
 };
 function activate(context) {
     context.subscriptions.push(vscode.commands.registerCommand('catTwitting.start', () => {

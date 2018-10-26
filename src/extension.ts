@@ -3,7 +3,7 @@ import * as vscode from 'vscode';
 var Codebird = require("codebird");
 
 const cats = {
-    'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
+    'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif'
 };
 
 export function activate(context: vscode.ExtensionContext) {
